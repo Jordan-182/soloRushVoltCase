@@ -23,7 +23,7 @@ body {
 }
 
 .section {
-  padding: var(--spacingLarge);
+  padding: var(--spacingLarge) var(--spacingMedium);
 }
 
 /* Header */
@@ -39,8 +39,17 @@ body {
 .navlinksContainer {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: var(--spacingMedium);
   color: var(--white);
+}
+
+.navlinksContainer a {
+  transition: 0.3s ease;
+}
+
+.navlinksContainer a:hover {
+  color: var(--accent);
 }
 
 .globalLogo {
@@ -62,6 +71,7 @@ body {
 
 .heroSectionIllustration img {
   border-radius: 8px;
+  margin: 0 auto;
 }
 
 .heroSectionText {
@@ -86,15 +96,17 @@ body {
   width: 200px;
   margin: var(--spacingMedium) auto var(--spacingSmall);
   padding: var(--spacingSmall);
-  border: 2px solid var(--accent);
+  border: 2px solid var(--white);
   border-radius: 5px;
   font-weight: 600;
   font-size: 1.1rem;
+  cursor: pointer;
   transition: 0.3s ease;
 }
 
 .CTA:hover {
   background: transparent;
+  border: 2px solid var(--accent);
 }
 
 /* Product section */
@@ -104,6 +116,12 @@ body {
 
 .sectionTitle {
   margin-bottom: var(--spacingMedium);
+}
+
+.productSection img {
+  border-radius: 8px;
+  margin: var(--spacingMedium) auto 0;
+  width: clamp(500px, 100%, 600px);
 }
 
 /* Function section */
@@ -136,6 +154,8 @@ body {
 
 .feedbackCard {
   border-radius: 5px;
+  width: clamp(250px, 100%, 800px);
+  margin: 0 auto;
   background: var(--white);
   color: var(--black);
   padding: var(--spacingMedium);
@@ -153,19 +173,36 @@ body {
 /* Offer section */
 .offerSection {
   color: var(--black);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacingMedium);
 }
 
 .offerSectionContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.offerSection .sectionTitle {
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .offerSection .sectionText {
   margin-top: var(--spacingSmall);
+  text-align: center;
+  margin: var(--spacingSmall) auto 0;
 }
 
 .offerSection .CTA {
   margin: var(--spacingMedium) auto 0;
+}
+
+.offerSection img {
+  width: clamp(500px, 100%, 600px);
+  margin: 0 auto;
+  border-radius: 8px;
 }
 
 /* Footer */
@@ -178,5 +215,95 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   gap: var(--spacingSmall);
+}
+
+.globalFooter a {
+  transition: 0.3s ease;
+}
+
+.globalFooter a:hover {
+  color: var(--accent);
+}
+
+.sectionText {
+  max-width: 65ch;
+}
+
+/* Responsive */
+@media screen and (min-width: 1024px) {
+  .section {
+    padding: var(--spacingLarge);
+  }
+
+  .globalNavbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacingSmall) var(--spacingMedium);
+  }
+
+  .globalLogo {
+    margin-bottom: 0;
+  }
+
+  .heroSection,
+  .productSection {
+    display: flex;
+    padding: var(--spacingLarge);
+    justify-content: center;
+    gap: var(--spacingLarge);
+  }
+
+  .heroSection {
+    flex-direction: row-reverse;
+  }
+
+  .heroSectionIllustration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .productSection {
+    flex-direction: row-reverse;
+  }
+
+  .heroSectionText,
+  .sectionMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .functionSection {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacingLarge);
+  }
+
+  .functionSectionMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .functionSection ul {
+    gap: var(--spacingMedium);
+  }
+
+  .feedbackSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .offerSection {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--spacingMedium);
+    align-items: center;
+  }
 }
